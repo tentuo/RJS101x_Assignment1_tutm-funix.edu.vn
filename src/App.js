@@ -5,8 +5,16 @@ import { Container, Col, Form, Row, FormGroup, Label, Input, Button } from 'reac
 import { Collapse, Nav, NavItem, NavLink } from 'reactstrap';
 import React, { Component } from 'react';
 import Menu from './components/MenuComponent';
+import { DISHES } from './shared/dishes';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dishes: DISHES,
+    };
+  }
+
   render() {
     return (
     <div className="App">
@@ -15,7 +23,7 @@ class App extends Component {
           <NavbarBrand href="/">ristorant</NavbarBrand>
         </div>
       </Navbar>
-      <Menu />
+      <Menu dishes={this.state.dishes} />
     </div>
    );
   }
