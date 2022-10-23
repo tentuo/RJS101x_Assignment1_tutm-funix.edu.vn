@@ -6,6 +6,7 @@ import { Collapse, Nav, NavItem, NavLink } from 'reactstrap';
 import React, { Component } from 'react';
 import Menu from './components/MenuComponent';
 import { DISHES } from './shared/dishes';
+import DishDetail from './components/DishdetailComponent';
 
 class App extends Component {
   constructor(props) {
@@ -23,11 +24,9 @@ class App extends Component {
           <NavbarBrand href="/">ristorant</NavbarBrand>
         </div>
       </Navbar>
-      <Menu dishes={this.state.dishes} />
+      <DishDetail dishes={this.state.dishes} />
     </div>
    );
   }
 }
-
 export default App;
-
