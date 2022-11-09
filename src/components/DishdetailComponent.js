@@ -2,23 +2,35 @@ import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import { Media } from 'reactstrap';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
-import { Container, Col, Form, Row, FormGroup, Label, Input, Button } from 'reactstrap';
 
-
-class Menu extends Component {
+class DishDetail extends Component{
     constructor(props) {
         super(props);
         this.state = {
             selectedDish: null
         }
-        
+        console.log('menu component constructor isvold');
     }
     
-    componentDidMount(){
-    }
-
     onDishSelect(dish) {
         this.setState({ selectedDish: dish});
+    }
+
+    renderComments(dish) {
+        if (dish != null)
+            return(
+                <Card>
+                    <h4>nhan xet</h4>
+                    <CardBody>
+                      <CardTitle>tac gia nhan xet</CardTitle>
+                      <CardText>ngay thang</CardText>
+                    </CardBody>
+                </Card>
+            );
+        else
+            return(
+                <div></div>
+            );
     }
 
     renderDish(dish) {
@@ -37,9 +49,9 @@ class Menu extends Component {
                 <div></div>
             );
     }
-    
+
     render() {
-        const menu = this.props.dishes.map((dish) => {
+        const menu = this.props.dish.map((dish) => {
             return (
                 <div className="col-12 col-md-5 m-1">
                     <Card key={dish.id}
@@ -59,13 +71,17 @@ class Menu extends Component {
                         {menu}
                 </div>
                 <div className="row">
-                  <div  className="col-12 col-md-5 m-1">
+                    <div  className="col-12 col-md-5 m-1">
                     {this.renderDish(this.state.selectedDish)}
-                  </div>
+                    </div>
+                    <div  className="col-12 col-md-5 m-1">
+                    {this.renderComments(this.state.selectedDish)}
+                    </div>
                 </div>
             </div>
         );
     }
 
 }
-export default Menu;
+
+export default DishDetail;

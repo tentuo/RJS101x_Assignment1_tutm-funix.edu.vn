@@ -4,30 +4,36 @@ import { Navbar, NavbarBrand } from 'reactstrap';
 import { Container, Col, Form, Row, FormGroup, Label, Input, Button } from 'reactstrap';
 import { Collapse, Nav, NavItem, NavLink } from 'reactstrap';
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom/client';
 import Menu from './components/MenuComponent';
 import { DISHES } from './shared/dishes';
+import DishDetail from './components/DishdetailComponent';
+import Main from './components/MainComponent';
+import { DEPARTMENTS, ROLE, STAFFS} from './shared/staffs';
+import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dishes: DISHES,
+      selectedDish: null,
     };
+  }
+  
+  onDishSelect(dish) {
+    this.setState({ selectedDish: dish});
   }
 
   render() {
     return (
-    <div className="App">
-      <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="/">ristorant</NavbarBrand>
-        </div>
-      </Navbar>
-      <Menu dishes={this.state.dishes} />
-    </div>
-   );
+      <BrowserRouter>
+      <div className="App">
+        <Main/>
+      </div>
+      </BrowserRouter>
+    );
   }
 }
 
 export default App;
-
