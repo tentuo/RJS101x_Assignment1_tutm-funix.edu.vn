@@ -31,23 +31,14 @@ class Main extends Component {
       <div>
         <Navbar dark color="primary">
          <div className="container">
-           <NavbarBrand href="/"> ứng dụng quản lý nhân sự </NavbarBrand>
-           <Link to='/staff'><Button> nhân viên </Button></Link>
-           <Link to='/dpt' ><Button > phòng ban </Button></Link>
+           <NavbarBrand href="/" > ứng dụng quản lý nhân sự v1.0</NavbarBrand>
          </div>
         </Navbar>
-        <Switch>
-          <Route path='/dpt'>
-            <div className="containerdpt" >
-            <DptList dish={this.state.dishes} />
-            </div>
-          </Route>
           <Route path='/staff'>
             <div className="containernhv" >
             <StaffList dish={this.state.dishes1} />
             </div>
           </Route>
-        </Switch>
       </div>
 
     );

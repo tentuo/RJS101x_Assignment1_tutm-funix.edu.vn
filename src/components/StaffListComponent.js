@@ -27,7 +27,7 @@ class StaffList extends Component {
             return(
                 <Card>
                     <CardBody>
-                      <CardText>Họ và tên: {dish.name} </CardText>
+                      <CardText><h5><b>Họ và tên: {dish.name} </b></h5></CardText>
                       <CardText>Ngày sinh: {dish.doB} </CardText>
                       <CardText>Ngày vào công ty: {dish.startDate} </CardText>
                       <CardText>Phòng ban: {dish.department.name} </CardText>
